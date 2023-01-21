@@ -3,28 +3,46 @@ import Layout from "../UI/Layout";
 
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import MenuButton from "../UI/MenuButton";
+import Card from "../UI/Card";
+import { useNavigate } from "react-router-dom";
 
 const MainMenu = () => {
+  const navigate = useNavigate();
+
+  const gameRulesHandler = () => {
+    navigate("/rules");
+  };
+
+  const CPUvHandler = () => {};
+
+  const PVPHandler = () => {};
+
   return (
     <Layout>
-      <div className="flex items-center justify-center h-full">
-        <div className="border-gray-900 rounded-lg p-6 max-w-lg flex items-center justify-between flex-col gap-4 w-full md:border-2 md:shadow-md md:shadow-black">
+      <Card>
+        <>
           <Logo />
-          <div className="flex flex-col gap-4 w-full">
+          <div className="grid gap-4 grid-rows-3 w-full">
             <MenuButton
               label="Player vs Cpu"
               color="red"
               image="player-vs-cpu"
+              onButtonClick={CPUvHandler}
             />
             <MenuButton
               label="Player vs Player"
               color="yellow"
               image="player-vs-player"
+              onButtonClick={PVPHandler}
             />
-            <MenuButton label="Game rules" color="white" />
+            <MenuButton
+              label="Game rules"
+              color="white"
+              onButtonClick={gameRulesHandler}
+            />
           </div>
-        </div>
-      </div>
+        </>
+      </Card>
     </Layout>
   );
 };

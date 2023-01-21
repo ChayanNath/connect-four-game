@@ -8,6 +8,11 @@ module.exports = {
         purple: "#7945FF",
         red: "#FD6687",
         yellow: "#FFCE67",
+        backdrop: "rgba(0, 0, 0, 0.3)",
+      },
+
+      fontFamily: {
+        sans: ["'Space Grotesk'"],
       },
     },
   },
