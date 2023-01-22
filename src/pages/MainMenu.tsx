@@ -1,21 +1,27 @@
-import React from "react";
 import Layout from "../UI/Layout";
 
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import MenuButton from "../UI/MenuButton";
 import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../store/hooks";
+import { toggleModal } from "../store/modal-slice";
 
 const MainMenu = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const gameRulesHandler = () => {
     navigate("/rules");
   };
 
-  const CPUvHandler = () => {};
+  const CPUvHandler = () => {
+    dispatch(toggleModal("mainMenu"));
+  };
 
-  const PVPHandler = () => {};
+  const PVPHandler = () => {
+    navigate("/game");
+  };
 
   return (
     <Layout>

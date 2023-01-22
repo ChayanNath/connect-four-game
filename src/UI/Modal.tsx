@@ -1,14 +1,11 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import Card from "./Card";
 
 const Backdrop = () => {
-  return (
-    <div className="w-full h-full inset-0 fixed background-color-backdrop"></div>
-  );
+  return <div className="w-full h-full inset-0 fixed bg-backdrop z-0"></div>;
 };
 const ModalOverlay: React.FC<{ children: JSX.Element }> = (props) => {
-  return <Card>{props.children}</Card>;
+  return <div className="z-10 fixed inset-0">{props.children}</div>;
 };
 const Modal: React.FC<{ children: JSX.Element }> = (props) => {
   const portalElement = document.getElementById("overlays") || document.body;
