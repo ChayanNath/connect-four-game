@@ -1,5 +1,5 @@
 import React from "react";
-import GameBoard from "../components/GameBoard";
+import GameBoardWrapper from "../components/GameBoardWrapper";
 import GamePageHeader from "../components/GamePageHeader";
 import Layout from "../UI/Layout";
 
@@ -7,9 +7,9 @@ const Game: React.FC = () => {
   return (
     <>
       <Layout>
-        <div className="container-lg mx-auto p-5">
+        <div className="flex flex-col items-center">
           <GamePageHeader />
-          <GameBoard />
+          <GameBoardWrapper />
         </div>
       </Layout>
     </>

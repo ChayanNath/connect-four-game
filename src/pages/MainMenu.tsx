@@ -6,6 +6,7 @@ import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
 import { toggleModal } from "../store/modal-slice";
+import { startGame } from "../store/game-slice";
 
 const MainMenu = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const MainMenu = () => {
   };
 
   const PVPHandler = () => {
+    dispatch(startGame("PvP"));
     navigate("/game");
   };
 

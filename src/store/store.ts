@@ -5,10 +5,19 @@ import {
   PreloadedState,
 } from "@reduxjs/toolkit";
 import { modalReducer } from "./modal-slice";
+import { gameReducer } from "./game-slice";
 
 const rootReducer = combineReducers({
   modal: modalReducer,
+  game: gameReducer,
 });
+
+export function setupStore(preloadedState?: PreloadedState<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+}
 
 //MIDDLEWARE
 const localStorageMiddleware: Middleware = ({ getState }) => {
@@ -27,20 +36,12 @@ const reHydrateStore = () => {
   }
 };
 
-export function setupStore(preloadedState?: PreloadedState<RootState>) {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState,
-  });
-}
-
 export const store = configureStore({
   reducer: rootReducer,
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),
 });
-
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

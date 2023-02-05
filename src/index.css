@@ -3,3 +3,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.game-board-wrapper {
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr max-content max-content;
+  grid-template-areas:
+    "player1 player2"
+    "board board"
+    "gameInfo gameInfo";
+  margin-top: 1.6rem;
+}
+.player-1 {
+  grid-area: player1;
+}
+
+.player-2 {
+  grid-area: player2;
+}
+
+.board {
+  grid-area: board;
+}
+
+.game-info {
+  grid-area: gameInfo;
+  justify-self: center;
+}
+
+@media screen and (min-width: 70em) {
+  .game-board-wrapper {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: max-content max-content;
+    grid-template-areas:
+      "player1 board player2"
+      "gameInfo gameInfo gameInfo";
+    gap: 3rem;
+    position: relative;
+  }
+}
