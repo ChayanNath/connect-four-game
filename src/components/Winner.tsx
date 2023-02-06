@@ -21,7 +21,7 @@ const Winner = () => {
   };
 
   return (
-    <div className="w-56 h-32 border-black border-2 bg-white rounded-3xl flex flex-col justify-center items-center shadow-black">
+    <div className="w-56 h-32 border-black border-2 bg-white rounded-3xl flex flex-col justify-center items-center shadow-black -mt-9">
       <div className="text-lg font-semibold">{name}</div>
       <div className="text-4xl uppercase font-bold">{status}</div>
       <button
